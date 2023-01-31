@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    private int lastPoints = 0;
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<Text>().text = "" + StaticGameData.Game.Points;
+        if (StaticGameData.Game.Points > lastPoints) {
+            lastPoints = StaticGameData.Game.Points;
+        }
+        this.GetComponent<Text>().text = "" + lastPoints;
     }
 }
