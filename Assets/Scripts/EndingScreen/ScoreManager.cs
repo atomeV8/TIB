@@ -5,13 +5,27 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int lastPoints = 0;
+    public GameObject HighScoreLabel;
+    public GameObject ScoreLabel;
     // Start is called before the first frame update
     void Start()
     {
-        if (StaticGameData.Game.Points > lastPoints) {
-            lastPoints = StaticGameData.Game.Points;
+    }
+
+    private void Awake()
+    {
+        HighScoreLabel = GameObject.Find("BestScore");
+        ScoreLabel = GameObject.Find("PersonalScore");
+        if (StaticGameData.Game.Points > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", StaticGameData.Game.Points);
+            HighScoreLabel.GetComponent<Text>().text = StaticGameData.Game.Points.ToString();
         }
-        this.GetComponent<Text>().text = "" + lastPoints;
+        else
+        {
+            HighScoreLabel.GetComponent<Text>().text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        }
+        ScoreLabel.GetComponent<Text>().text = StaticGameData.Game.Points.ToString();
+
     }
 }

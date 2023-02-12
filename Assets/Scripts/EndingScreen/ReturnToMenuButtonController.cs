@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReplayButtonController : MonoBehaviour
+public class ReturnToMenuButtonController : MonoBehaviour
 {
-    public void onClickReplay()
+    public void onClickBackToMenu()
     {
         StaticGameData.isLost = false;
         StaticGameData.Game.Points = 0;
