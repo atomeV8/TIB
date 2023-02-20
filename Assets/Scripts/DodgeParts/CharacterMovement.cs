@@ -14,7 +14,6 @@ public class CharacterMovement : MonoBehaviour
     {
         if (!hasLost)
         {
-
             if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 4)
             {
                 transform.position += new Vector3(0, characterSpeed, 0);
