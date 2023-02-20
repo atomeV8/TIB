@@ -24,7 +24,7 @@ public class GameControllerDP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        current_tick_count=0;
+        current_tick_count = 0;
         cm = GameObject.Find("Character").GetComponent<CharacterMovement>();
         parts = new List<Part>();
         instructions = GameObject.Find("Canvas/Instructions");
@@ -32,7 +32,7 @@ public class GameControllerDP : MonoBehaviour
         //Fetching game objects
         for (int x = 0; x < 10; x++)
         {
-            gameObjects[x] = GameObject.Find("Part" + (x+1));
+            gameObjects[x] = GameObject.Find("Part" + (x + 1));
         }
         //Initializing array with data
         parts.Add(new Part(1, -10, -6, gameObjects[0]));
@@ -79,7 +79,7 @@ public class GameControllerDP : MonoBehaviour
         }
     }
 
-    
+
 }
 class Part
 {
@@ -96,12 +96,13 @@ class Part
         this.gameObject = gameObject;
     }
 
-    public void Launch(GameObject character) {
-        
+    public void Launch(GameObject character)
+    {
+
         Rigidbody2D rigidbody = this.gameObject.GetComponent<Rigidbody2D>();
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
         float x = character.transform.position.x;
         float y = character.transform.position.y;
-        rigidbody.velocity = new Vector2((x-gameObject.transform.position.x)*speed, (y - gameObject.transform.position.y)*speed);
+        rigidbody.velocity = new Vector2((x - gameObject.transform.position.x) * speed, (y - gameObject.transform.position.y) * speed);
     }
 }
