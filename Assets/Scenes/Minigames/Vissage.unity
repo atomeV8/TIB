@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 246093826}
   - component: {fileID: 246093825}
   - component: {fileID: 246093823}
-  - component: {fileID: 246093824}
   - component: {fileID: 246093827}
+  - component: {fileID: 246093824}
   - component: {fileID: 246093828}
   m_Layer: 1
   m_Name: vis_16x16
