@@ -40,7 +40,6 @@ public class playerInteract : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
             //timeText.text = timeRemaining.ToString();
-            print(timeRemaining);
         }
         else if(!hasWon)
         {

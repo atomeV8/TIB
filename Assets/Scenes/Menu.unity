@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 330062349}
   - component: {fileID: 330062350}
   - component: {fileID: 330062351}
+  - component: {fileID: 330062352}
   m_Layer: 0
   m_Name: GlobalGameController
   m_TagString: Untagged
@@ -440,6 +441,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &330062352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330062347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d266e9d4e7c7d64b8583675f1aa8f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &346665483
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -908,7 +921,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 330062349}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: onClickStart
+        m_MethodName: onClickOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

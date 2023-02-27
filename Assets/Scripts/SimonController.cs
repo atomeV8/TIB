@@ -146,8 +146,8 @@ public class SimonController : MonoBehaviour
                     pause = !pause;
                 }
             }
-
         }
+    }
 
     private int sequenceNumber = 0;
     private void ReadSequence()

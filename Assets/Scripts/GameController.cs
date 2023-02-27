@@ -3,6 +3,7 @@ using UnityEngine;
 using TIBLibrary;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class GameController : MonoBehaviour
                 sceneList.Add(System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i)));
             }
         }
-                   
+
+        SceneManager.sceneLoaded += OnSceneLoaded;           
 
         game = new Game(sceneList);
 
@@ -38,6 +40,10 @@ public class GameController : MonoBehaviour
         StaticGameData.Game = game;
         StaticGameData.winSoundEffect = this.winSoundEffect;
         StaticGameData.lossSoundEffect = this.lossSoundEffect;
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
     }
 
     // Update is called once per frame
@@ -57,6 +63,11 @@ public class GameController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void onClickOptions()
+    {
+        SceneManager.LoadScene("OptionsScene");
+    }
 }
 
 public static class StaticGameData{
@@ -65,6 +76,7 @@ public static class StaticGameData{
     public static bool isLost { get; set; } = false;
     public static AudioClip winSoundEffect { get; set; }
     public static AudioClip lossSoundEffect { get; set; }
+    public static int playMusic { get; set; } = 1; //1 = yes
 
     public static IEnumerator swapScene(float timeBetweenScene = 2f)
     {
