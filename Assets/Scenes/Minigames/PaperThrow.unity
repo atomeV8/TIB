@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownLength: 20
-  rotationSpeed: 0.5
+  rotationSpeed: 2
   isAiming: 1
   throwPower: 15
 --- !u!82 &737559939
