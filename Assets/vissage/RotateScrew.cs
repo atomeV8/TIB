@@ -100,8 +100,8 @@ public class RotateScrew : MonoBehaviour
                 timeConst += Time.deltaTime;
                 if (timeConst > incrementTime && !hasWon)
                 {
-                    screw.transform.Rotate(0f, 0f, -2f);
-                    rotation += 2;
+                    screw.transform.Rotate(0f, 0f, -8f);
+                    rotation += 8;
                     timeConst = 0.0f;
                 }
             }
