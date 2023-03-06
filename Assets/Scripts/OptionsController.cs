@@ -10,11 +10,11 @@ public class OptionsController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("playMusic") == 1)
         {
-            GameObject.Find("MusicState").GetComponent<SpriteRenderer>().color = new Color(0, 137, 14); //0,137,14 pour vert; 210,0,11 pour rouge
+            GameObject.Find("Speaker_on").GetComponent<SpriteRenderer>().sortingOrder = 1;
         }
         else if (PlayerPrefs.GetInt("playMusic") == 0)
         {
-            GameObject.Find("MusicState").GetComponent<SpriteRenderer>().color = new Color(210, 0, 11);
+            GameObject.Find("Speaker_on").GetComponent<SpriteRenderer>().sortingOrder = -1;
         }
     }
 
@@ -30,14 +30,14 @@ public class OptionsController : MonoBehaviour
         {
             Debug.Log("Music ON");
             PlayerPrefs.SetInt("playMusic", 1);
-            GameObject.Find("MusicState").GetComponent<SpriteRenderer>().color = new Color(0,137,14); //0,137,14 pour vert; 210,0,11 pour rouge
+            GameObject.Find("Speaker_on").GetComponent<SpriteRenderer>().sortingOrder = 1;
             GetComponent<AudioSource>().enabled = true;
         }
         else if(PlayerPrefs.GetInt("playMusic")  == 1)
         {
             Debug.Log("Music OFF");
             PlayerPrefs.SetInt("playMusic", 0);
-            GameObject.Find("MusicState").GetComponent<SpriteRenderer>().color = new Color(210, 0, 11);
+            GameObject.Find("Speaker_on").GetComponent<SpriteRenderer>().sortingOrder = -1;
             GetComponent<AudioSource>().enabled = false;
         }
     }
