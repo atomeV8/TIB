@@ -21,7 +21,6 @@ public class BallFallsOnGound : MonoBehaviour
             Rigidbody2D paperBallRigidbody = paperBall.GetComponent<Rigidbody2D>();
             paperBallRigidbody.bodyType = RigidbodyType2D.Static;
             gameControllerPT.isAiming = true;
-
         }
     }
 
