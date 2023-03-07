@@ -16,7 +16,7 @@ public class GameControllerPT : MonoBehaviour
     private bool timerIsRunning = true;
     //Aim rotation management
     [SerializeField]
-    private float rotationSpeed = 5.0f;
+    private float rotationSpeed = 0.5f;
     bool rotationSens = false;
     public bool isAiming = true;
     //Throw management
