@@ -23,9 +23,21 @@ public class SimonController : MonoBehaviour
     private bool gameIsEnd = false;
     private int actualSequenceItem = 0;
 
+    [SerializeField]
+    public bool isHardMode = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (isHardMode)
+        {
+            difficulty = 8;
+        }
+        else
+        {
+            GameObject.Find("hard_mode_overlay").SetActive(false);
+        }
+
         StaticGameData.Game.inMinigame = true;
 
         ///Initializing the colors

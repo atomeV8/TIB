@@ -23,9 +23,21 @@ public class GameControllerAOT : MonoBehaviour
     FinishLineCollision characterScript;
     bool hasLost = false;
 
+    private float characterSpeed = 0.2f;
+    public bool isHardMode = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (isHardMode)
+        {
+            characterSpeed = 0.1f;
+        }
+        else
+        {
+            GameObject.Find("hard_mode_overlay").SetActive(false);
+        }
+
         leftArrowUp = GameObject.Find("LeftArrowKey");
         leftArrowDown = GameObject.Find("LeftArrowKeyDown"); 
         rightArrowUp = GameObject.Find("RightArrowKey");
@@ -52,7 +64,7 @@ public class GameControllerAOT : MonoBehaviour
             //Charachter's movement
             if (rightWasPressed && leftWasPressed)
             {
-                character.transform.position = new Vector3(character.transform.position.x + 0.2f, character.transform.position.y);
+                character.transform.position = new Vector3(character.transform.position.x + characterSpeed, character.transform.position.y);
 
                 rightWasPressed = false;
                 leftWasPressed = false;

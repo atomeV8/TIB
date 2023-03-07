@@ -19,11 +19,22 @@ public class GameControllerDP : MonoBehaviour
     GameObject instructions;
     private int current_tick_count = 0;
 
+    private int partSpeed = 1;
+    public bool isHardMode = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        if (isHardMode)
+        {
+            partSpeed = 2;
+        }
+        else
+        {
+            GameObject.Find("hard_mode_overlay").SetActive(false);
+        }
+
         current_tick_count = 0;
         cm = GameObject.Find("Character").GetComponent<CharacterMovement>();
         parts = new List<Part>();
@@ -35,15 +46,15 @@ public class GameControllerDP : MonoBehaviour
             gameObjects[x] = GameObject.Find("Part" + (x + 1));
         }
         //Initializing array with data
-        parts.Add(new Part(1, -10, -6, gameObjects[0]));
-        parts.Add(new Part(1, -10, 6, gameObjects[1]));
-        parts.Add(new Part(1, 10, 0, gameObjects[2]));
-        parts.Add(new Part(1, 0, 6, gameObjects[3]));
-        parts.Add(new Part(1, 10, 6, gameObjects[4]));
-        parts.Add(new Part(1, 10, 0, gameObjects[5]));
-        parts.Add(new Part(1, -4, -8, gameObjects[6]));
-        parts.Add(new Part(1, -10, -3, gameObjects[7]));
-        parts.Add(new Part(1, 10, -5, gameObjects[7]));
+        parts.Add(new Part(partSpeed, -10, -6, gameObjects[0]));
+        parts.Add(new Part(partSpeed, -10, 6, gameObjects[1]));
+        parts.Add(new Part(partSpeed, 10, 0, gameObjects[2]));
+        parts.Add(new Part(partSpeed, 0, 6, gameObjects[3]));
+        parts.Add(new Part(partSpeed, 10, 6, gameObjects[4]));
+        parts.Add(new Part(partSpeed, 10, 0, gameObjects[5]));
+        parts.Add(new Part(partSpeed, -4, -8, gameObjects[6]));
+        parts.Add(new Part(partSpeed, -10, -3, gameObjects[7]));
+        parts.Add(new Part(partSpeed, 10, -5, gameObjects[7]));
     }
 
     // Update is called once per frame
