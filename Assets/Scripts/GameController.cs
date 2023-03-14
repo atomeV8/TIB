@@ -77,6 +77,8 @@ public static class StaticGameData{
     public static AudioClip winSoundEffect { get; set; }
     public static AudioClip lossSoundEffect { get; set; }
     public static int playMusic { get; set; } = 1; //1 = yes
+    public static int DirectorCount { get; set; } = 0;
+    public static bool isMinigameHardMode { get; set; } = false;
 
     public static IEnumerator swapScene(float timeBetweenScene = 2f)
     {
@@ -87,13 +89,23 @@ public static class StaticGameData{
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(StaticGameData.Game.Minigames[StaticGameData.ActualMinigame].SceneName);
         StaticGameData.ActualMinigame++;
 
-        if (StaticGameData.ActualMinigame >= StaticGameData.Game.Minigames.Count)
+        if (DirectorCount > 2)
         {
-            StaticGameData.ActualMinigame = 0;
-            Randomizer.ShuffleMinigames<Minigame>(StaticGameData.Game.Minigames);
+            isMinigameHardMode = true;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("DodgeParts");
+            DirectorCount = 0;
         }
+        else
+        {
+            isMinigameHardMode = false;
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
-        
+            if (StaticGameData.ActualMinigame >= StaticGameData.Game.Minigames.Count)
+            {
+                StaticGameData.ActualMinigame = 0;
+                Randomizer.ShuffleMinigames<Minigame>(StaticGameData.Game.Minigames);
+            }
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
+        }
     }
 }

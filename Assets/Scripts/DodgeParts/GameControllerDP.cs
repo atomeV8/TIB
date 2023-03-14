@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TIBLibrary;
 
 public class GameControllerDP : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class GameControllerDP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (StaticGameData.isMinigameHardMode)
+        {
+            isHardMode = true;
+        }
+
         if (isHardMode)
         {
             partSpeed = 2;
