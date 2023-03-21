@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 8eb660fdff4556a4dbe0e2cb94d546be
+  - enabled: 1
+    path: Assets/Scenes/OptionsScene.unity
+    guid: 34ab3c9153d0e534fb0b24b8c73b69dd
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: cd321cd96facb794584a6921334077f5
+  - enabled: 1
+    path: Assets/Scenes/Minigames/PaperThrow.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Minigames/ArriveOnTime.unity
+    guid: c034db14bc063c443a443050eb96c620
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Difference.unity
+    guid: c8ccd117a924c494abdb664e2aaf789c
+  - enabled: 1
+    path: Assets/Scenes/Minigames/DodgeParts.unity
+    guid: 62262521f0bb88a4fbce397ea5105f01
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Simon.unity
+    guid: f7f4c5e7d820af34d86a05e16b00229b
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Vissage.unity
+    guid: 716b5d35e47c68344aff897d603399ca
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Tour.unity
+    guid: ff5085b5550172e4dbdb045f193b411d
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Cnc.unity
+    guid: b854ffbfbbd527f48885ab00131cafeb
+  - enabled: 1
+    path: Assets/Scenes/EndingScreen.unity
+    guid: 1a05d165462ff214d830846bb81f0f16
+  m_configObjects: {}
