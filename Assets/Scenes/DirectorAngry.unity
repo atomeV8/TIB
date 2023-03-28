@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 289795518}
   - component: {fileID: 289795517}
   - component: {fileID: 289795516}
+  - component: {fileID: 289795519}
   m_Layer: 0
   m_Name: Director_F1
   m_TagString: Untagged
@@ -285,7 +286,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e9737f505f5363e439422e76babf925f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -305,13 +306,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289795515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: -3.39, z: 0}
+  m_LocalPosition: {x: -2.14, y: -2.18, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &289795519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289795515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c507b92360290b41b763617a2da3f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &661101824
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +335,6 @@ GameObject:
   m_Component:
   - component: {fileID: 661101827}
   - component: {fileID: 661101826}
-  - component: {fileID: 661101825}
   m_Layer: 0
   m_Name: Window
   m_TagString: Untagged
@@ -330,26 +342,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &661101825
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661101824}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e7605d3bf0981ec43b0e2308a78b6661, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!212 &661101826
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -662,8 +654,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094038605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0.1, z: 0}
-  m_LocalScale: {x: 0.2834462, y: 0.2834462, z: 0.2834462}
+  m_LocalPosition: {x: 0.2811, y: 0.1517, z: 0}
+  m_LocalScale: {x: 0.3213894, y: 0.28515235, z: 0.2834462}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -722,7 +714,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
