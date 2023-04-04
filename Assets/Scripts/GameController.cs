@@ -86,7 +86,8 @@ public static class StaticGameData{
         yield return new WaitForSeconds(timeBetweenScene);
 
         StaticGameData.Game.inMinigame = false;
-        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(StaticGameData.Game.Minigames[StaticGameData.ActualMinigame].SceneName);
+        //UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(StaticGameData.Game.Minigames[StaticGameData.ActualMinigame].SceneName);
+        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
         StaticGameData.ActualMinigame++;
 
         if (DirectorCount > 2)

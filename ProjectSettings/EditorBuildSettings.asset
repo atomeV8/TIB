@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingScreen.unity
     guid: 1a05d165462ff214d830846bb81f0f16
+  - enabled: 1
+    path: Assets/Scenes/DirectorAngry.unity
+    guid: 2dd272a036f2bf248ab9ce33ed2d4de9
   m_configObjects: {}
