@@ -46,18 +46,26 @@ public class GameControllerPT : MonoBehaviour
             //Aim rotation
             if (isAiming)
             {
-                if (rotationSens)
+                if (Input.GetKeyDown("space"))
                 {
-                    aimIndicator.transform.Rotate(new Vector3(0, 0, rotationSpeed));
+                    launchPaperBall();
+                    isAiming = false;
                 }
                 else
                 {
-                    aimIndicator.transform.Rotate(new Vector3(0, 0, -rotationSpeed));
-                }
-                int angle = Mathf.RoundToInt(aimIndicator.transform.rotation.eulerAngles.z);
-                if (angle <= 270)
-                {
-                    rotationSens = !rotationSens;
+                    if (rotationSens)
+                    {
+                        aimIndicator.transform.Rotate(new Vector3(0, 0, rotationSpeed));
+                    }
+                    else
+                    {
+                        aimIndicator.transform.Rotate(new Vector3(0, 0, -rotationSpeed));
+                    }
+                    int angle = Mathf.RoundToInt(aimIndicator.transform.rotation.eulerAngles.z);
+                    if (angle <= 270)
+                    {
+                        rotationSens = !rotationSens;
+                    }
                 }
             }
             //Timer
@@ -81,7 +89,7 @@ public class GameControllerPT : MonoBehaviour
         }
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         switch (Event.current.keyCode)
         {
@@ -93,7 +101,7 @@ public class GameControllerPT : MonoBehaviour
                 }
                 break;
         }
-    }
+    }*/
 
     private void launchPaperBall()
     {
