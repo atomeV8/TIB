@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
+
     }
 
     // Update is called once per frame
@@ -70,7 +71,7 @@ public class GameController : MonoBehaviour
     }
 }
 
-public static class StaticGameData{
+public static class StaticGameData {
     public static Game Game { get; set; }
     public static int ActualMinigame { get; set; } = 0;
     public static bool isLost { get; set; } = false;
@@ -102,7 +103,8 @@ public static class StaticGameData{
             if (StaticGameData.ActualMinigame >= StaticGameData.Game.Minigames.Count)
             {
                 StaticGameData.ActualMinigame = 0;
-                Randomizer.ShuffleMinigames<Minigame>(StaticGameData.Game.Minigames);
+                UnityEngine.SceneManagement.SceneManager.LoadScene("MinimapScreen");
+                // Randomizer.ShuffleMinigames<Minigame>(StaticGameData.Game.Minigames);
             }
 
             UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
