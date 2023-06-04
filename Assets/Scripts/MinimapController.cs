@@ -8,14 +8,14 @@ public class MinimapController : MonoBehaviour
     GameObject[] mapPoints = new GameObject[7];
     Vector2 posFinal;
     Vector2 chemin;
-    float totalDelta;
     int step = 0;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        posFinal = new Vector2();
-        totalDelta = new float();
+        rb = GetComponent<Rigidbody2D>();
+        posFinal = new Vector3();
 
         mapPoints[0] = GameObject.Find("MapPointInfo");
         mapPoints[1] = GameObject.Find("MapPointBT");
@@ -30,33 +30,24 @@ public class MinimapController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        totalDelta += Time.deltaTime * 1000;
-        //Debug.Log(totalDelta);
         if(step < 5)
         {
-            if (totalDelta >= 1000 / 24)
-            {
-                Vector3 newPos = new Vector3() {
-                    x = this.gameObject.transform.position.x + chemin.x / 5 / 24,
-                    y = this.gameObject.transform.position.y + chemin.y / 5 / 24,
-                    z = 0
-                };
-                this.gameObject.transform.position = newPos;
-                totalDelta = 0;
+                rb.MovePosition(rb.position + chemin);
+                Debug.Log(rb.position);
                 step++;
-            }
         }
     }
 
     public void setCharacterPosition(int spot)
     {
-        Debug.Log(mapPoints[spot].gameObject);
+        //Debug.Log(mapPoints[spot].gameObject);
+        //Debug.Log("Position du personnage avant : " + gameObject.transform.position);
         posFinal.x = mapPoints[spot].gameObject.transform.position.x;
         posFinal.y = mapPoints[spot].gameObject.transform.position.y;
-        chemin.x = posFinal.x - this.gameObject.transform.position.x;
-        chemin.y = posFinal.y - this.gameObject.transform.position.y;
+        chemin.x = posFinal.x - gameObject.transform.position.x;
+        chemin.y = posFinal.y - gameObject.transform.position.y;
         /*Debug.Log(mapPoints[spot].gameObject.transform.position.x);
         Debug.Log(mapPoints[spot].gameObject.transform.position.y);
         Debug.Log(chemin.x);
