@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,9 +37,9 @@ public class GameControllerPT : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (timerIsRunning && ballEnters.ballEntered==false)
+        if (timerIsRunning && ballEnters.ballEntered == false)
         {
             //Aim rotation
             if (isAiming)
@@ -66,7 +64,7 @@ public class GameControllerPT : MonoBehaviour
                 countDownLength -= Time.deltaTime;
                 timerDisplay.text = Mathf.Round(countDownLength) + " secondes";
             }
-            else if(!hasLost)
+            else if (!hasLost)
             {
                 hasLost = true;
                 print("lose");
@@ -83,15 +81,19 @@ public class GameControllerPT : MonoBehaviour
 
     private void OnGUI()
     {
-        switch (Event.current.keyCode)
+        Event e = Event.current;
+        if (isAiming)
         {
-            case KeyCode.Space:
-                if (isAiming)
+            if (e.isKey)
+            {
+                switch (e.keyCode)
                 {
-                    launchPaperBall();
-                    isAiming = false;
+                    case KeyCode.Space:
+                        launchPaperBall();
+                        isAiming = false;
+                        break;
                 }
-                break;
+            }
         }
     }
 

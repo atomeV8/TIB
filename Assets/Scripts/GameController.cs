@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TIBLibrary;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System;
 
 public class GameController : MonoBehaviour
 {
@@ -22,7 +21,7 @@ public class GameController : MonoBehaviour
         int sceneCount = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
         string[] scenes = new string[sceneCount];
 
-        
+
         for (int i = 0; i < sceneCount; i++)
         {
             if (System.IO.Path.GetFullPath(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i)).Contains("Minigames"))
@@ -31,7 +30,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        SceneManager.sceneLoaded += OnSceneLoaded;           
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         game = new Game(sceneList);
 
@@ -50,14 +49,14 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void onClickStart()
     {
         GetComponent<AudioSource>().PlayOneShot(impact, 1F);
         SceneManager.LoadScene("LoadingScreen");
-        
+
     }
 
     public void onClickQuit()
@@ -71,7 +70,8 @@ public class GameController : MonoBehaviour
     }
 }
 
-public static class StaticGameData {
+public static class StaticGameData
+{
     public static Game Game { get; set; }
     public static int ActualMinigame { get; set; } = 0;
     public static bool isLost { get; set; } = false;
@@ -89,25 +89,12 @@ public static class StaticGameData {
         StaticGameData.Game.inMinigame = false;
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(StaticGameData.Game.Minigames[StaticGameData.ActualMinigame].SceneName);
         StaticGameData.ActualMinigame++;
-
-        if (DirectorCount > 2)
+        if (StaticGameData.ActualMinigame >= StaticGameData.Game.Minigames.Count)
         {
-            isMinigameHardMode = true;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("DodgeParts");
-            DirectorCount = 0;
+            StaticGameData.ActualMinigame = 0;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MinimapScreen");
+            // Randomizer.ShuffleMinigames<Minigame>(StaticGameData.Game.Minigames);
         }
-        else
-        {
-            isMinigameHardMode = false;
-
-            if (StaticGameData.ActualMinigame >= StaticGameData.Game.Minigames.Count)
-            {
-                StaticGameData.ActualMinigame = 0;
-                UnityEngine.SceneManagement.SceneManager.LoadScene("MinimapScreen");
-                // Randomizer.ShuffleMinigames<Minigame>(StaticGameData.Game.Minigames);
-            }
-
-            UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
-        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
     }
 }
