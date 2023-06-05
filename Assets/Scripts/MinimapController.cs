@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MinimapController : MonoBehaviour
 {
@@ -6,9 +7,10 @@ public class MinimapController : MonoBehaviour
     Vector2 posFinal;
     Vector2 chemin;
     int step = 0;
-    int stepsUntilFinished = 80;
+    int stepsUntilFinished = 100;
     float frameRate = 60f;
     Rigidbody2D rb;
+    private float cooldownTime = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,12 @@ public class MinimapController : MonoBehaviour
             rb.MovePosition(rb.position + chemin);
             step++;
         }
+        cooldownTime -= Time.deltaTime;
+        if (cooldownTime < 0)
+        {
+            SceneManager.LoadScene(StaticGameData.Game.Minigames[StaticGameData.ActualMinigame].SceneName);
+        }
+
     }
 
     public void setCharacterPosition()

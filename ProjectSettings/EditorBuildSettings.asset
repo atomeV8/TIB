@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScreen.unity
     guid: cd321cd96facb794584a6921334077f5
   - enabled: 1
+    path: Assets/Scenes/DirectorAngry.unity
+    guid: 2dd272a036f2bf248ab9ce33ed2d4de9
+  - enabled: 1
     path: Assets/Scenes/MinimapScene.unity
     guid: 4f0e5bdb5f0965f4c8586e7ec4dd3494
   - enabled: 1

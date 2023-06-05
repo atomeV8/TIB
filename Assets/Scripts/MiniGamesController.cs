@@ -9,13 +9,13 @@ public class MiniGamesController : MonoBehaviour
         if (StaticGameData.isLost)
         {
             StaticGameData.DirectorCount = 0;
-            SceneManager.LoadScene("EndingScreen");
+            SceneManager.LoadScene("DirectorAngry");
             SceneManager.UnloadSceneAsync("LoadingScreen");
         }
         else
         {
             StaticGameData.DirectorCount++;
-            SceneManager.LoadScene(StaticGameData.Game.Minigames[StaticGameData.ActualMinigame].SceneName);
+            SceneManager.LoadScene("MinimapScene");
             SceneManager.UnloadSceneAsync("LoadingScreen");
         }
     }
